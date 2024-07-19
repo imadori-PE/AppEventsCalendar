@@ -29,6 +29,17 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    buildFeatures{
+        viewBinding = true
+    }
+    /*
+    buildFeatures{
+        viewBinding = true
+    }
+    se refiere a los componentes XML UI que se usan en el main activity para escribir encontrar una vista
+    por ID y luego referir la variable con cada componente XML UI
+     */
 }
 
 dependencies {
