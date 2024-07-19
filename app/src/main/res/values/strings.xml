@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AppEventsCalendar</string>
+    <string name="app_Home">Bienvenido</string>
+    <string name="item_Home">Home</string>
+    <string name="item_addEvent">Agregar Evento</string>
+    <string name="item_calendar">Calendar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_home_fragment">Bienvenido, agrega tus eventos a la agenda y gestiona correctamente tu tiempo</string>
+    <string name="title_event_fragment">Crear Evento</string>
+    <string name="title_calendar_fragment">Eventos en el calendario</string>
 </resources>
