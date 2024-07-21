@@ -24,9 +24,9 @@ Requested function:
 *Validations for create a new even
 ```
 ## Some screenshots:
-Home Fragment                   |                   Events Fragment
+Home Fragment                   |                   Events Fragment              |   Login Page  
 :---------------------------------:        |      :------------------------------:
-<img src="Screenshots/Home_Fragment.jpg" height="200">  | <img src="Screenshots/Events_Fragment.jpg" height="200">
+<img src="Screenshots/Home_Fragment.jpg" height="200">  | <img src="Screenshots/Events_Fragment.jpg" height="200"> | <img src="Screenshots/Animation_Transition.jpg" height="200">
 
 Login Page                   |                   Job Listing Page
 :---------------------------------:        |      :------------------------------:
