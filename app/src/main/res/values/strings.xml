@@ -2,10 +2,18 @@
     <string name="app_name">AppEventsCalendar</string>
     <string name="app_Home">Bienvenido</string>
     <string name="item_Home">Home</string>
-    <string name="item_addEvent">Agregar Evento</string>
+    <string name="item_addEvent">Eventos</string>
     <string name="item_calendar">Calendar</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="title_home_fragment">Bienvenido, agrega tus eventos a la agenda y gestiona correctamente tu tiempo</string>
     <string name="title_event_fragment">Crear Evento</string>
+    <string name="title_event_result_fragment">Evento creado correctamente!</string>
     <string name="title_calendar_fragment">Eventos en el calendario</string>
+    <string-array name="OptionEvents">
+        <item>Cita</item>
+        <item>Aniversario</item>
+        <item>Cuenta atrás</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,45 +1,34 @@
 package com.example.appeventscalendar;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import com.example.appeventscalendar.databinding.ActivityMainBinding;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new HomeFragment());
-/*
+
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.home:
-                    replaceFragment(new HomeFragment());
-                    break;
-                case R.id.addEvent:
-                    replaceFragment(new EventFragment());
-                    break;
-                case R.id.calendar:
-                    replaceFragment(new CalendarFragment());
-                    break;
+            if (item.getItemId() == R.id.item_home) {
+                replaceFragment(new HomeFragment());
+            }else if (item.getItemId() == R.id.item_add) {
+                replaceFragment(new EventFragment());
+            }else if (item.getItemId() == R.id.item_calendar) {
+                replaceFragment(new CalendarFragment());
             }
             return true;
         });
-*/
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -48,4 +37,5 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
     }
+
 }

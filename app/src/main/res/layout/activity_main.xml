@@ -4,15 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@color/green"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <FrameLayout
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frame_layout"
+        android:name="com.example.appeventscalendar.HomeFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_home"
+        app:defaultNavHost="true" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:layout_width="match_parent"
@@ -28,23 +30,12 @@
             android:id="@+id/bottomNavigationView"
             android:layout_marginEnd="50dp"
             android:layout_marginStart="50dp"
-            app:labelVisibilityMode="labeled"
             android:background="@android:color/transparent"
+            app:labelVisibilityMode="labeled"
+            app:itemIconTint="@drawable/item_selector"
+            app:itemRippleColor="@android:color/transparent"
             app:itemIconSize="30dp"
             app:menu="@menu/bottom_menu"/>
     </com.google.android.material.bottomappbar.BottomAppBar>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addEvent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="40dp"
-        android:contentDescription="@string/item_addEvent"
-        android:src="@drawable/ic_baseline_add_circle_24"
-        app:layout_anchorGravity="center"
-        app:maxImageSize="40dp"
-        app:tint="@color/green" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

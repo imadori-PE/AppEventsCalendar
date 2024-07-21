@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment android:id="@+id/homeFragment" android:name="your.package.HomeFragment"
+        android:label="Home Fragment">
+        <action android:id="@+id/action_homeFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+    </fragment>
+
+    <fragment android:id="@+id/calendarFragment" android:name="your.package.CalendarFragment"
+        android:label="Calendar Fragment" />
+
+</navigation>

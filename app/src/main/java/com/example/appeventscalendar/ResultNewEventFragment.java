@@ -9,9 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 
-public class HomeFragment extends Fragment {
+public class ResultNewEventFragment extends Fragment {
+
+    TextView txtResultEvent;
 
     @Override
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
@@ -25,7 +28,16 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+
+        View rootView = inflater.inflate(R.layout.fragment_result_new_event, container, false);
+        txtResultEvent=rootView.findViewById(R.id.txtResultEvent);
+
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            String data = bundle.getString("DATA");
+            txtResultEvent.setText(data);
+        }
+        return rootView;
+
     }
 }
