@@ -23,3 +23,4 @@ Requested function:
 *Fragment for create a event with title, datetime start, datetime end, Spinner type of event, Switch for All day Event and description
 *Validations for create a new even
 ```
+## Some screenshots:
