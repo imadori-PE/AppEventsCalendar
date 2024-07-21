@@ -69,18 +69,38 @@
                 android:textColor="@color/lavender"
                 android:text="Fecha de Inicio"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:id="@+id/txtDateStart"
                 android:padding="8dp"
-                android:inputType="datetime"
+                android:inputType="date"
                 android:enabled="false"
                 android:allowClickWhenDisabled="true"
                 android:hint="dd/MM/yyyy"
                 android:drawableLeft="@drawable/ic_baseline_date_range_24"
                 android:drawablePadding="8dp"
                 tools:ignore="TextFields" />
+            <EditText
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:id="@+id/txtTimeStart"
+                android:padding="8dp"
+                android:text="08:00"
+                android:layout_marginLeft="10dp"
+                android:inputType="time"
+                android:enabled="false"
+                android:allowClickWhenDisabled="true"
+                android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                android:drawablePadding="8dp"
+                tools:ignore="TextFields" />
+        </LinearLayout>
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -90,8 +110,13 @@
                 android:textColor="@color/lavender"
                 android:text="Fecha de Fin"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:id="@+id/txtDateEnd"
                 android:padding="8dp"
@@ -101,6 +126,22 @@
                 android:hint="dd/MM/yyyy"
                 android:drawableLeft="@drawable/ic_baseline_date_range_24"
                 android:drawablePadding="8dp"/>
+            <EditText
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:id="@+id/txtTimeEnd"
+                android:padding="8dp"
+                android:layout_marginLeft="10dp"
+                android:inputType="time"
+                android:enabled="false"
+                android:allowClickWhenDisabled="true"
+                android:text="17:00"
+                android:drawableLeft="@drawable/ic_baseline_access_time_24"
+                android:drawablePadding="8dp"
+                tools:ignore="TextFields" />
+
+        </LinearLayout>
+
 
             <Switch
                 android:id="@+id/switchAllDay"

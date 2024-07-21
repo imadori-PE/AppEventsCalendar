@@ -2,6 +2,7 @@ package com.example.appeventscalendar;
 
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,7 +17,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
-import android.widget.TextView;
+import android.widget.TimePicker;
 
 import androidx.fragment.app.FragmentTransaction;
 
@@ -28,7 +29,7 @@ import java.util.Date;
 
 public class EventFragment extends Fragment {
 
-    EditText txtNameEvent, txtDescripcion, txtDateStart, txtDateEnd, tmpEditText;
+    EditText txtNameEvent, txtDescription, txtDateStart, txtDateEnd, tmpEditText, txtTimeStart, txtTimeEnd;
     Button btnCancel,btnConfirm;
     Spinner cmbTypeEvent;
     Switch switchAllDay;
@@ -40,6 +41,15 @@ public class EventFragment extends Fragment {
                     month=month+1;
                     String date=dayOfMonth+"/"+month+"/"+year;
                     tmpEditText.setText(date);
+                }
+            };
+
+    private TimePickerDialog.OnTimeSetListener setListenerTime=
+            new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker datePicker, int hours, int minutes) {
+                    String hour=String.valueOf(hours)+":"+String.valueOf(minutes);
+                    tmpEditText.setText(hour);
                 }
             };
 
@@ -59,18 +69,22 @@ public class EventFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_event, container, false);
 
         txtNameEvent=rootView.findViewById(R.id.txtNameEvent);
-        txtDescripcion=rootView.findViewById(R.id.txtDescripcion);
+        txtDescription =rootView.findViewById(R.id.txtDescripcion);
         txtDateStart=rootView.findViewById(R.id.txtDateStart);
         txtDateEnd=rootView.findViewById(R.id.txtDateEnd);
         cmbTypeEvent=rootView.findViewById(R.id.cmbTypeEvent);
         switchAllDay=rootView.findViewById(R.id.switchAllDay);
         btnCancel=rootView.findViewById(R.id.btnCancel);
         btnConfirm=rootView.findViewById(R.id.btnConfirm);
+        txtTimeStart=rootView.findViewById(R.id.txtTimeStart);
+        txtTimeEnd=rootView.findViewById(R.id.txtTimeEnd);
 
         final Calendar calendar= Calendar.getInstance();
         final int year=calendar.get(Calendar.YEAR);
         final int month=calendar.get(Calendar.MONTH);
         final int day=calendar.get(Calendar.DAY_OF_MONTH);
+        final int hour=calendar.get(Calendar.HOUR);
+        final int minute=calendar.get(Calendar.MINUTE);
 
         txtDateStart.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -80,6 +94,15 @@ public class EventFragment extends Fragment {
                 datePickerDialog.show();
             }
         });
+        txtTimeEnd.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                tmpEditText=txtTimeEnd;
+                TimePickerDialog datePickerDialog=new TimePickerDialog(getContext(),setListenerTime,hour,minute,true);
+                datePickerDialog.show();
+            }
+            }
+        );
         txtDateEnd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -88,6 +111,15 @@ public class EventFragment extends Fragment {
                 datePickerDialog.show();
             }
         });
+        txtTimeStart.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                tmpEditText=txtTimeStart;
+                TimePickerDialog datePickerDialog=new TimePickerDialog(getContext(),setListenerTime,hour,minute,true);
+                datePickerDialog.show();
+            }
+        }
+        );
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,19 +139,22 @@ public class EventFragment extends Fragment {
                     Bundle bundle = new Bundle();
                     String result="";
                     if(switchAllDay.isChecked()) {
-                        result = String.format("Tipo de evento: %s\nEvento: %s\nFecha: %s\nTodo el día\nDescripción: %s",
+                        result = String.format("Tipo de evento: %s\nEvento: %s\nFecha: %s %s\nTodo el día\nDescripción: %s",
                                 cmbTypeEvent.getSelectedItem().toString(),
                                 txtNameEvent.getText().toString(),
                                 txtDateStart.getText().toString(),
-                                txtDescripcion.getText().toString());
+                                txtTimeStart.getText().toString(),
+                                txtDescription.getText().toString());
                     }
                     else{
-                        result = String.format("Tipo de evento: %s\nEvento: %s\nDel: %s\nAl: %s\nDescripción: %s",
+                        result = String.format("Tipo de evento: %s\nEvento: %s\nDel: %s %s\nAl: %s %s\nDescripción: %s",
                                 cmbTypeEvent.getSelectedItem().toString(),
                                 txtNameEvent.getText().toString(),
                                 txtDateStart.getText().toString(),
+                                txtTimeStart.getText().toString(),
                                 txtDateEnd.getText().toString(),
-                                txtDescripcion.getText().toString());
+                                txtTimeEnd.getText().toString(),
+                                txtDescription.getText().toString());
                     }
 
                     bundle.putString("DATA",result);
