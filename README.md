@@ -24,18 +24,11 @@ Requested function:
 *Validations for create a new even
 ```
 ## Some screenshots:
-Home Fragment                   |                   Events Fragment              |   Login Page  
-:---------------------------------:        |      :------------------------------:  |      :------------------------------:
-<img src="Screenshots/Home_Fragment.jpg" height="200">  | <img src="Screenshots/Events_Fragment.jpg" height="200"> | <img src="Screenshots/Animation_Transition.jpg" height="200">
+Home Fragment                       |                   Events Fragment      |   Animation Transition                 |      DateTimePicker
+:---------------------------------: |      :------------------------------:  |   :------------------------------:     |      :------------------------------:
+<img src="Screenshots/Home_Fragment.jpg" height="200">  | <img src="Screenshots/Events_Fragment.jpg" height="200"> | <img src="Screenshots/Animation_Transition.jpg" height="200"> |  <img src="Screenshots/DateTimePicker.jpg" height="200">
 
-Login Page                   |                   Job Listing Page
-:---------------------------------:        |      :------------------------------:
-<img src="Screenshots/Animation_Transition.jpg" height="200">  | <img src="Screenshots/DateTimePicker.jpg" height="200">
+TimePicker                          |                   Validation Form      | Success Fragment Send data between fragments |                   -
+:---------------------------------: |      :------------------------------:  | :---------------------------------:          |      :------------------------------:
+<img src="Screenshots/TimePicker.jpg" height="200">  | <img src="Screenshots/Validation_Form.jpg" height="200">             | <img src="Screenshots/Success_Fragment_Send_data_between_fragments.jpg" height="200">  | 
 
-New Job Creation Page                   |                   Diary List Page
-:---------------------------------:        |      :------------------------------:
-<img src="Screenshots/TimePicker.jpg" height="200">  | <img src="Screenshots/Validation_Form.jpg" height="200">
-
-Post Creation Page                   |                   -
-:---------------------------------:        |      :------------------------------:
-<img src="Screenshots/Success_Fragment_Send_data_between_fragments.jpg" height="200">  | 
