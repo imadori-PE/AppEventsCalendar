@@ -134,35 +134,35 @@ public class EventFragment extends Fragment {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(validateTitleEvent() & validateDateStart()& validateDateEnd(switchAllDay.isChecked()))
-                {
-                    Bundle bundle = new Bundle();
-                    String result="";
-                    if(switchAllDay.isChecked()) {
-                        result = String.format("Tipo de evento: %s\nEvento: %s\nFecha: %s %s\nTodo el día\nDescripción: %s",
-                                cmbTypeEvent.getSelectedItem().toString(),
-                                txtNameEvent.getText().toString(),
-                                txtDateStart.getText().toString(),
-                                txtTimeStart.getText().toString(),
-                                txtDescription.getText().toString());
-                    }
-                    else{
-                        result = String.format("Tipo de evento: %s\nEvento: %s\nDel: %s %s\nAl: %s %s\nDescripción: %s",
-                                cmbTypeEvent.getSelectedItem().toString(),
-                                txtNameEvent.getText().toString(),
-                                txtDateStart.getText().toString(),
-                                txtTimeStart.getText().toString(),
-                                txtDateEnd.getText().toString(),
-                                txtTimeEnd.getText().toString(),
-                                txtDescription.getText().toString());
-                    }
+                if(validateTitleEvent()) {
+                    if (validateDateEnd(switchAllDay.isChecked() )& validateDateStart()  ) {
+                        Bundle bundle = new Bundle();
+                        String result = "";
+                        if (switchAllDay.isChecked()) {
+                            result = String.format("Tipo de evento: %s\nEvento: %s\nFecha: %s %s\nTodo el día\nDescripción: %s",
+                                    cmbTypeEvent.getSelectedItem().toString(),
+                                    txtNameEvent.getText().toString(),
+                                    txtDateStart.getText().toString(),
+                                    txtTimeStart.getText().toString(),
+                                    txtDescription.getText().toString());
+                        } else {
+                            result = String.format("Tipo de evento: %s\nEvento: %s\nDel: %s %s\nAl: %s %s\nDescripción: %s",
+                                    cmbTypeEvent.getSelectedItem().toString(),
+                                    txtNameEvent.getText().toString(),
+                                    txtDateStart.getText().toString(),
+                                    txtTimeStart.getText().toString(),
+                                    txtDateEnd.getText().toString(),
+                                    txtTimeEnd.getText().toString(),
+                                    txtDescription.getText().toString());
+                        }
 
-                    bundle.putString("DATA",result);
-                    ResultNewEventFragment resultFragment= new ResultNewEventFragment();
-                    FragmentTransaction transaction= getFragmentManager().beginTransaction();
-                    resultFragment.setArguments(bundle);
-                    transaction.replace(R.id.frame_layout, resultFragment);
-                    transaction.commit();
+                        bundle.putString("DATA", result);
+                        ResultNewEventFragment resultFragment = new ResultNewEventFragment();
+                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                        resultFragment.setArguments(bundle);
+                        transaction.replace(R.id.frame_layout, resultFragment);
+                        transaction.commit();
+                    }
                 }
             }
         });
@@ -185,12 +185,12 @@ public class EventFragment extends Fragment {
     public Boolean validateDateStart() {
         String val = txtDateStart.getText().toString();
         if (val.isEmpty()) {
-            txtDateStart.setError("Error. Fecha de Inicio vacía.");
+            txtNameEvent.setError("Error. Fecha de Inicio vacía.");
             return false;
         } else {
             if(validateAndParseDate(val,"dd/MM/yyyy")==null)
             {
-                txtDateStart.setError("Error. Fecha de Inicio Incorrecta");
+                txtNameEvent.setError("Error. Fecha de Inicio Incorrecta");
                 return false;
             }
             else {
@@ -210,13 +210,13 @@ public class EventFragment extends Fragment {
             }
             else
             {
-                txtDateEnd.setError("Error. Fecha de Fin vacía.");
+                txtNameEvent.setError("Error. Fecha de Fin vacía.");
                 return false;
             }
         } else {
             if(validateAndParseDate(val,"dd/MM/yyyy")==null)
             {
-                txtDateEnd.setError("Error. Fecha de Fin Incorrecta");
+                txtNameEvent.setError("Error. Fecha de Fin Incorrecta");
                 return false;
             }
             else {
